@@ -16,7 +16,7 @@ description: >-                        # used by seo meta and the atom feed
   Preaching the Kingdom of God.
 
 # Replace with the website url, e.g. 'https://username.github.io'
-url: 'https://rudolphp.github.io'
+url: 'http://theeternal.life'
 
 author: Rudy Pereira                  # change to your full name
 
@@ -33,11 +33,11 @@ social:
   email: rpereira7@yahoo.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
+    - https://twitter.com/RudolphPereira      # change to your twitter homepage
     - https://github.com/rudolphp       # change to your github homepage
     # Uncomment below to add more social links
-    - https://www.facebook.com/username
-    - https://www.linkedin.com/in/username
+    - https://www.facebook.com/profile.php?id=100041206241926
+    - https://www.linkedin.com/in/rudolph-pereira-29471b1b
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 

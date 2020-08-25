@@ -1,6 +1,6 @@
 ---
 title:  "What is Man?"
-date:   2020-08-24 08:15:00 +0000
+date:   2020-08-24
 categories: [Man, Purpose]
 tags: [psalm]
 ---
