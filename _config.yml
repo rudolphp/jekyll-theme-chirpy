@@ -8,12 +8,12 @@
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 #--------------------------
 
-title: Eternal.life                          # the main title
+title: TheEternal.life                          # the main title
 
 tagline: This is the promise that he has promised us, eternal life. # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Goa, Fellowship, Bible Study, Church. Preaching the Kingdom of God.
+  Goa, Fellowship, Bible Study, Church. Preaching Kingdom of God.
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'https://theeternal.life'
@@ -76,7 +76,7 @@ disqus:
 #
 #     dark   - Use the dark color scheme
 #
-theme_mode: dark
+theme_mode: dual
 
 # boolean type, global switch for ToC in posts.
 toc: true
