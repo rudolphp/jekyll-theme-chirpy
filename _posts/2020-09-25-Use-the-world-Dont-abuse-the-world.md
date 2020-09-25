@@ -1,7 +1,7 @@
 ---
 title: Use the world; Don’t abuse the world
 date: 2020-09-25
-categories: [Discipleship, Lifestyle]
+categories: [Lifestyle]
 tags: [sin,pleasure,self-control]
 ---
 
