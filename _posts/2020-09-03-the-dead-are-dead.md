@@ -1,6 +1,6 @@
 ---
 title: The Dead are Dead
-date: 2020-09-03
+date: 2020-09-04
 categories: [Man]
 tags: [death, resurrection]
 ---
