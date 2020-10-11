@@ -1,8 +1,8 @@
 ---
 title:  "What is Man?"
 date:   2020-08-24
-categories: [Man]
-tags: [son of man, son of god, purpose of life]
+categories: [Nature of Man]
+tags: [son of man, son of god, purpose]
 ---
 In Psalm 8:3-4, David is praising God for His creation. He realizes how insignificant man is, not deserving the attention of the Almighty God who created the heavens and all that is in it. A synonym for man is the phrase "Son of man". This title is the most common way Jesus referred to himself. Jesus was a "Son of man". Signifying and emphasizing that he was a man!
 

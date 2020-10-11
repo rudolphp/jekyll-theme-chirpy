@@ -1,7 +1,7 @@
 ---
 title: The Dead are Dead
 date: 2020-09-04
-categories: [Man]
+categories: [Nature of Man]
 tags: [death, resurrection]
 ---
 
