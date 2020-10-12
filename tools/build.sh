@@ -16,6 +16,7 @@ CONTAINER="${WORK_DIR}/.container"
 
 DEST="${WORK_DIR}/_site"
 
+docker=false
 
 _help() {
   echo "Usage:"
@@ -23,21 +24,32 @@ _help() {
   echo "   bash build.sh [options]"
   echo
   echo "Options:"
-  echo "   -b, --baseurl <URL>      The site relative url that start with slash, e.g. '/project'"
-  echo "   -h, --help               Print the help information"
-  echo "   -d, --destination <DIR>  Destination directory (defaults to ./_site)"
+  echo "   -b, --baseurl     <URL>      The site relative url that start with slash, e.g. '/project'"
+  echo "   -h, --help                   Print the help information"
+  echo "   -d, --destination <DIR>      Destination directory (defaults to ./_site)"
+  echo "       --docker                 Build site within docker"
 }
 
+_install_tools() {
+  # docker image `jekyll/jekyll` based on Alpine Linux
+  echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+  apk update
+  apk add yq
+}
 
 _init() {
   cd "$WORK_DIR"
 
-  if [[ -d "$CONTAINER" ]]; then
+  if [[ -f Gemfile.lock ]]; then
+    rm -f Gemfile.lock
+  fi
+
+  if [[ -d $CONTAINER ]]; then
     rm -rf "$CONTAINER"
   fi
 
-  if [[ -d "_site" ]]; then
-    jekyll clean
+  if [[ -d $DEST ]]; then
+    bundle exec jekyll clean
   fi
 
   local _temp="$(mktemp -d)"
@@ -45,7 +57,6 @@ _init() {
   cp -r ./.git "$_temp"
   mv "$_temp" "$CONTAINER"
 }
-
 
 _build() {
   cd "$CONTAINER"
@@ -60,7 +71,7 @@ _build() {
   echo -e "\nBuild success, the site files have been placed in '${DEST}'."
 
   if [[ -d "${DEST}/.git" ]]; then
-    if [[ ! -z $(git -C "$DEST" status -s) ]]; then
+    if [[ -n $(git -C "$DEST" status -s) ]]; then
       git -C "$DEST" add .
       git -C "$DEST" commit -m "[Automation] Update site files." -q
       echo -e "\nPlease push the changes of $DEST to remote master branch.\n"
@@ -70,37 +81,37 @@ _build() {
   cd .. && rm -rf "$CONTAINER"
 }
 
-
 _check_unset() {
-  if [[ -z ${1:+unset} ]]
-  then
+  if [[ -z ${1:+unset} ]]; then
     _help
     exit 1
   fi
 }
 
-
 main() {
-  while [[ $# -gt 0 ]]
-  do
+  while [[ $# -gt 0 ]]; do
     opt="$1"
     case $opt in
-      -b|--baseurl)
+      -b | --baseurl)
         local _baseurl="$2"
-        if [[ -z "$_baseurl" ]]; then
+        if [[ -z $_baseurl ]]; then
           _baseurl='""'
         fi
         CMD+=" -b $_baseurl"
         shift
         shift
         ;;
-      -d|--destination)
+      -d | --destination)
         _check_unset "$2"
         DEST="$(realpath "$2")"
-        shift;
-        shift;
+        shift
+        shift
         ;;
-      -h|--help)
+      --docker)
+        docker=true
+        shift
+        ;;
+      -h | --help)
         _help
         exit 0
         ;;
@@ -110,6 +121,10 @@ main() {
         ;;
     esac
   done
+
+  if $docker; then
+    _install_tools
+  fi
 
   _init
   _build
