@@ -3,7 +3,10 @@ title: Christians are People of the Book
 date: 2020-10-11
 categories: [Hermeneutics]
 tags: [inspiration]
+# pin: true
 ---
+
+![Manuscripts](/assets/img/deadseascroll.jpg){: width="800"}
 
 Christians are called “People of the Book”. The scriptures (Old & New Testament) are the foundations of Christian faith and practise. We are not supposed to lean on our own understanding, culture and teachers; but to first objectively look to the scriptures for all guidance.
 
